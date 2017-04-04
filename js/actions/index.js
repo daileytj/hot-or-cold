@@ -36,11 +36,10 @@ export const numberOfGuesses = guesses => ({
     guesses
 });
 
-// Win Feedback
-export const DID_WIN = 'DID_WIN';
-export const didWin = (userGuess, randomNumber, winFeedback) => ({
-    type: DID_WIN,
+// Game Over?
+export const GAME_OVER = 'GAME_OVER';
+export const gameOver = (userGuess, randomNumber) => ({
+    type: GAME_OVER,
     userGuess,
-    randomNumber,
-    winFeedback
+    randomNumber
 });
