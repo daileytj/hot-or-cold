@@ -1,6 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import store from '../store';
+import * as actions from '../actions/index';
 
-export default class NumberOfGuesses extends React.Component {
+export class NumberOfGuesses extends React.Component {
+
     render() {
       return (
             <div className="numberOfGuesses">
@@ -9,3 +13,9 @@ export default class NumberOfGuesses extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state, props) => ({
+    numberOfGuesses: state.numberOfGuesses
+});
+
+export default connect(mapStateToProps)(NumberOfGuesses);
