@@ -1,7 +1,8 @@
 // Set Random Number
 export const ASSIGN_RANDOM_NUMBER = 'ASSIGN_RANDOM_NUMBER';
-export const assignRandomNumber = () => ({
-    type: ASSIGN_RANDOM_NUMBER
+export const assignRandomNumber = randomNumber => ({
+    type: ASSIGN_RANDOM_NUMBER,
+    randomNumber
 });
 
 // User Guess
@@ -21,16 +22,18 @@ export const testEqual = (userGuess, randomNumber) => ({
 
 // Give Feedback
 export const FEEDBACK = 'FEEDBACK';
-export const feedback = (userGuess, randomNumber) => ({
+export const feedback = (userGuess, randomNumber, giveFeedback) => ({
     type: FEEDBACK,
     userGuess,
-    randomNumber
+    randomNumber,
+    giveFeedback
 });
 
 // Display # Of Guesses
 export const NUMBER_OF_GUESSES = 'NUMBER_OF_GUESSES';
-export const numberOfGuesses = () => ({
-    type: NUMBER_OF_GUESSES
+export const numberOfGuesses = guesses => ({
+    type: NUMBER_OF_GUESSES,
+    guesses
 });
 
 // Game Over?

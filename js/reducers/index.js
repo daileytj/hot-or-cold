@@ -5,20 +5,18 @@ const initialState = {
     guesses: [],
     numberOfGuesses: 0,
     difference: 100,
-    gameOver: 0,
-    feedback: ''
+    gameOver: 0
 }
 
 export const reducer = (state = initialState, action) => {
-    if (action.type === actions.ASSIGN_RANDOM_NUMBER) {
+    if (action.type === actions.NEW_GAME) {
         // set random number at start of new game
         return {
             randomNumber: Math.floor((Math.random() * 100) + 1),
             guesses: [],
             numberOfGuesses: 0,
             difference: 100,
-            gameOver: false,
-            feedback: 'Guess a number between 1 and 100'
+            gameOver: false
         }
     } else if (action.type === actions.GUESS) {
         //push users guess into guesses array
@@ -30,21 +28,19 @@ export const reducer = (state = initialState, action) => {
             ],
             numberOfGuesses: state.numberOfGuesses,
             difference: state.difference,
-            gameOver: state.gameOver,
-            feedback: state.feedback
+            gameOver: state.gameOver
         }
     } else if (action.type === actions.TEST_EQUAL) {
         // take most recent guess and compare against randomNumber
-        let theDifference = Math.abs(state.randomNumber - action.userGuess);
+
         return {
             randomNumber: state.randomNumber,
             guesses: [
                 ...state.guesses
             ],
             numberOfGuesses: state.numberOfGuesses,
-            difference: theDifference,
-            gameOver: state.gameOver,
-            feedback: state.feedback
+            difference: Math.abs(action.randomNumber - action.userGuess),
+            gameOver: state.gameOver
         }
     }
     else if (action.type === actions.NUMBER_OF_GUESSES){
@@ -56,8 +52,7 @@ export const reducer = (state = initialState, action) => {
             ],
             numberOfGuesses: state.numberOfGuesses + 1,
             difference: state.difference,
-            gameOver: state.gameOver,
-            feedback: state.feedback
+            gameOver: state.gameOver
         }
     }
     else if (action.type === actions.GAME_OVER){
@@ -68,20 +63,7 @@ export const reducer = (state = initialState, action) => {
             ],
             numberOfGuesses: state.numberOfGuesses,
             difference: state.difference,
-            gameOver: ((action.userGuess - action.randomNumber) === 0) ? true : false,
-            feedback: state.feedback
-        }
-    }
-    else if (action.type === actions.FEEDBACK){
-        return {
-            randomNumber: state.randomNumber,
-            guesses: [
-                ...state.guesses
-            ],
-            numberOfGuesses: state.numberOfGuesses,
-            difference: state.difference,
-            gameOver: state.gameOver,
-            feedback: action.feedback
+            gameOver: ((action.userGuess - action.randomNumber) === 0) ? true : false
         }
     }
 

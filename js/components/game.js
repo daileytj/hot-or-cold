@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import NewGameButton from '../components/new-game-button';
 import UserGuessForm from '../components/user-guess-form';
 import NumberOfGuesses from '../components/number-of-guesses';
@@ -12,9 +11,9 @@ export default class Game extends React.Component {
             <div className="game">
                 <NewGameButton />
                 <UserGuessForm />
-                <NumberOfGuesses/>
-                <UserGuessesDisplay/>
-                <Feedback/>
+                <NumberOfGuesses numberOfGuesses = {5} />
+                <UserGuessesDisplay userGuesses = {[3,6,9,12]}/>
+                <Feedback userGuess = {5} randomNumber = {95}/>
             </div>
         );
     }
