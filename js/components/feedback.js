@@ -30,7 +30,9 @@ export class Feedback extends React.Component {
       else if (difference > 7){text = 'Hot!'}
       else if (difference > 3){text = 'Blazing Inferno!'}
       else if (difference > 0){text = 'Ahhh, you\'re sooooo close!'}
-      else {text = 'You Win!'}
+      else {
+        text = 'You Win! Press "New Game" to try again';
+      }
       console.log('text ',text);
       return text;
     }

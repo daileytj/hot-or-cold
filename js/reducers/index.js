@@ -43,7 +43,7 @@ export const reducer = (state = initialState, action) => {
             ],
             numberOfGuesses: state.numberOfGuesses,
             difference: theDifference,
-            gameOver: state.gameOver,
+            gameOver: ((action.userGuess - action.randomNumber) === 0) ? true : false,
             feedback: state.feedback
         }
     }
