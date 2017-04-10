@@ -6,7 +6,8 @@ const initialState = {
     numberOfGuesses: 0,
     difference: 100,
     gameOver: 0,
-    feedback: ''
+    feedback: '',
+    highScore: 100
 }
 
 export const reducer = (state = initialState, action) => {
@@ -18,7 +19,8 @@ export const reducer = (state = initialState, action) => {
             numberOfGuesses: 0,
             difference: 100,
             gameOver: false,
-            feedback: 'Guess a number between 1 and 100'
+            feedback: 'Guess a number between 1 and 100',
+            highScore: 100
         }
     } else if (action.type === actions.GUESS) {
         //push users guess into guesses array
@@ -31,7 +33,8 @@ export const reducer = (state = initialState, action) => {
             numberOfGuesses: state.numberOfGuesses,
             difference: state.difference,
             gameOver: state.gameOver,
-            feedback: state.feedback
+            feedback: state.feedback,
+            highScore: action.highScore
         }
     } else if (action.type === actions.TEST_EQUAL) {
         // take most recent guess and compare against randomNumber
@@ -44,7 +47,8 @@ export const reducer = (state = initialState, action) => {
             numberOfGuesses: state.numberOfGuesses,
             difference: theDifference,
             gameOver: ((action.userGuess - action.randomNumber) === 0) ? true : false,
-            feedback: state.feedback
+            feedback: state.feedback,
+            highScore: action.highScore
         }
     }
     else if (action.type === actions.NUMBER_OF_GUESSES){
@@ -57,7 +61,8 @@ export const reducer = (state = initialState, action) => {
             numberOfGuesses: state.numberOfGuesses + 1,
             difference: state.difference,
             gameOver: state.gameOver,
-            feedback: state.feedback
+            feedback: state.feedback,
+            highScore: action.highScore
         }
     }
     else if (action.type === actions.GAME_OVER){
@@ -69,7 +74,8 @@ export const reducer = (state = initialState, action) => {
             numberOfGuesses: state.numberOfGuesses,
             difference: state.difference,
             gameOver: ((action.userGuess - action.randomNumber) === 0) ? true : false,
-            feedback: state.feedback
+            feedback: state.feedback,
+            highScore: action.highScore
         }
     }
     else if (action.type === actions.FEEDBACK){
@@ -81,7 +87,32 @@ export const reducer = (state = initialState, action) => {
             numberOfGuesses: state.numberOfGuesses,
             difference: state.difference,
             gameOver: state.gameOver,
-            feedback: action.feedback
+            feedback: action.feedback,
+            highScore: action.highScore
+        }
+    }
+    //high score
+    else if (action.type === actions.GET_HIGH_SCORE_SUCCESS){
+        return {
+            guesses: state.guesses,
+            randomNumber: state.randomNumber,
+            difference: state.difference,
+            gameOver: state.gameOver,
+            numberOfGuesses: state.numberOfGuesses,
+            feedback: action.feedback,
+            highScore: action.highScore
+        }
+    }
+
+    else if (action.type === actions.PUT_HIGH_SCORE_SYNC){
+        return {
+            guesses: state.guesses,
+            randomNumber: state.randomNumber,
+            difference: state.difference,
+            gameOver: state.gameOver,
+            numberOfGuesses: state.numberOfGuesses,
+            feedback: action.feedback,
+            highScore: action.highScore
         }
     }
 
