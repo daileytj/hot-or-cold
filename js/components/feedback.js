@@ -19,7 +19,7 @@ export class Feedback extends React.Component {
 }
 
     const feedback = difference => {
-        console.log('difference ',difference);
+        // console.log('difference ',difference);
       let text = '';
       if(store.getState().guesses == 0){text = 'Guess a number between 1 and 100'}
       else if(difference > 100 || difference < 0){text = 'guess a number between 1 and 100'}
@@ -33,7 +33,7 @@ export class Feedback extends React.Component {
       else {
         text = 'You Win! Press "New Game" to try again';
       }
-      console.log('text ',text);
+    //   console.log('text ',text);
       return text;
     }
 

@@ -11,11 +11,11 @@ export class NewGameButton extends React.Component {
 
     newGame(){
       this.props.dispatch(actions.assignRandomNumber());
-      console.log('new game has started');
+      // console.log('new game has started');
     }
 
     render() {
-      console.log('new game started with: ', store.getState());
+      // console.log('new game started with: ', store.getState());
       return (
             <button className="newGame" type = "button" onClick = {this.newGame}>
                 New Game

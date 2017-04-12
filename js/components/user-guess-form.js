@@ -18,7 +18,7 @@ export class UserGuessForm extends React.Component {
 
     onButtonClick(){
       const guess = Math.trunc(this.inputField.value.trim());
-      console.log(guess);
+      // console.log(guess);
       this.props.dispatch(actions.gameOver());
       if (!this.gameOver){
         if(guess > 0 && guess < 101){
