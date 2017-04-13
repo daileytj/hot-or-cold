@@ -58,7 +58,7 @@ export const putHighScoreSync = (highScore) => ({
 });
 
 export const getHighScore = score => dispatch => {
-    const url = 'http://localhost:8081/fewest-guesses';
+    const url = 'http://127.0.0.1:8080/fewest-guesses';
     return fetch(url).then(response => {
         if (!response.ok) {
             throw new Error(response.statusText);
@@ -75,7 +75,7 @@ export const getHighScore = score => dispatch => {
 };
 
 export const putHighScore = score => dispatch => {
-    const url = 'http://localhost:8081/fewest-guesses';
+    const url = 'http://127.0.0.1:8080/fewest-guesses';
     const params = {
         method: 'PUT',
         headers: {

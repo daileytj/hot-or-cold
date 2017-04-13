@@ -1,8 +1,8 @@
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 const jsonParser = require('body-parser').json();
 
-const highScore = require('./models');
+// const highScore = require('./js/components/high-score');
 
 const app = express();
 const router = express.Router();

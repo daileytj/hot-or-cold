@@ -4,6 +4,11 @@ A template for developing React apps.
 
 ## Getting started
 
+### How to intall it:
+* `npm install`
+* `node server.js` starts a server
+* `npm run dev` initiates the build and serves the app
+
 ### Setting up a project
 
 * Move into your projects directory: `cd ~/YOUR_PROJECTS_DIRECTORY`
@@ -20,4 +25,3 @@ A template for developing React apps.
 * Run the development task: `npm run dev`
     * Starts a server running at http://localhost:8080
     * Automatically rebuilds when any of your files change
-
